@@ -1,0 +1,18 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenidoquecambia %}
+{% if nombre %}
+
+<ul>
+    {% for n in nombre %}
+       <li>{{n.nombre}}</li>
+       <li>{{n.apellido}}</li>
+       <li>{{n.categoria}}</li>
+       <li>{{n.numerocarnet}}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenidoquecambia %}
+ 
+    <!--colocoamos lo que va a cambiar-->
+    <h1>Jugadores</h1>
+    <p> </p>
+    <p>Agregar un Jugador</p>
+    {% if miformulario.errors %}
+    <p style="color: red;"> Estan mal los datos, revisar.</p>
+    {% endif %}
+    
+    <form action="" method="POST">{% csrf_token %}
+        
+        <table>
+            {{ miformulario.as_table }}
+        </table>
+        
+        <input type="submit" value="Enviar">
+    </form>
+    <p> </p>
+    <p> Busqueda por Apellido</p>
+    <form action="/buscar/" method="GET">
+        <input type="text" name='apellido' id='apellido'>
+        <input type="submit" value="buscar">
+    </form>
+{% endblock %}
